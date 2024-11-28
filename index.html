@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="index.css">
+</head>
+<body>
+      <div class="container">
+        <div class="left">
+            <label> HTML</label>
+            <textarea  id='htmlcode' onkeyup="inputs()"></textarea>
+            <label> CSS</label>
+            <textarea  id='csscode'  onkeyup="inputs()"></textarea>
+              <label>JavaScript</label>
+            <textarea id='jscode'  onkeyup="inputs()"></textarea>
+          
+        </div>
+        <div class="right">
+          <label> Output</label>
+          <iframe id='output'></iframe>
+        </div>
+      </div>
+  
+      <script>
+       
+          const inputs=()=>{
+
+            let htmlcode = document.getElementById('htmlcode').value;
+          let csscode = document.getElementById('csscode').value;
+          let jscode = document.getElementById('jscode').value;
+          let output = document.getElementById('output');
+        
+            output.contentDocument.body.innerHTML=htmlcode +"<style>"+csscode+"</style>";
+            output.contentWindow.eval(jscode);
+
+          }
+        </script>
+
+</body>
+</html>
+
+<!-- <button id="hii" onclick="fun()">click</button> -->
+
+<!-- function fun(){
+    document.getElementById('hii').style.color=red;
+    
+    } -->
